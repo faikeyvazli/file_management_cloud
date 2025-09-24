@@ -1,0 +1,19 @@
+CREATE TABLE users(
+        id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        username VARCHAR(255) UNIQUE,
+        password TEXT NOT NULL
+);
+
+
+CREATE TABLE roles(
+        id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        role VARCHAR(40) UNIQUE NOT NULL
+);
+
+CREATE TABLE user_roles(
+    user_id BIGINT NOT NULL,
+    role_id BIGINT NOT NULL
+);
+
+INSERT INTO roles (role) VALUES ('ROLE_USER');
+INSERT INTO roles (role) VALUES ('ROLE_ADMIN');
